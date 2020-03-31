@@ -64,12 +64,6 @@ $ python3
 (venv) $ pip install --upgrade psutil
 ```
 
-* sklearn
-
-```bash
-(venv) $ $ pip install --upgrade sklearn
-```
-
 ## Data files
 
 The source data files must be downloaded from external web sites.
