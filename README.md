@@ -177,6 +177,8 @@ Picture augmentation consists of:
 * Horizontal flip
 * Zoom in the range [90%, 120%]
 
+Results are stored into `data/data` directory.
+
 ### mps_autotags learn
 
 This step trains the classification network to associate picture scenes with keywords. When this step completes, the best
@@ -199,6 +201,8 @@ optional arguments:
 Train a neural network to associate caption keywords with image features that were prepared during the 'init' phase.
 The neural network will be trained for a maximum of `--max-epochs` epochs with gradient descent.
 `--val-percent` percents of the pictures will be used to validate and guide the training process.
+
+Intermediate and final results are stored into `data/nn` directory.
 
 ### mps_autotags generate
 
@@ -308,6 +312,27 @@ directory. You get results in a few seconds.
 
 Well, not that good at the present time. See the [Future work](#future-work) section to find how to improve these
 results.
+
+### Resulting neural networks
+
+The resulting neural networks are saved into the `data/nn` directory. As they are pretty large, they are not
+included in the git repository for the moment, while I don't obtain satisfactory results. Intermediate results
+are saved too.
+
+```echo
+$ ls -alh data/nn
+total 19G
+drwxr-xr-x 4 pierre pierre 4,0K mar 26 22:06 .
+drwxr-xr-x 6 pierre pierre 4,0K mar  7 21:12 ..
+-rw-r--r-- 1 pierre pierre 2,4G mar 22 16:10 model-ep001-loss0.073-val_loss0.117.h5
+-rw-r--r-- 1 pierre pierre 2,4G mar 22 18:01 model-ep002-loss0.131-val_loss0.052.h5
+-rw-r--r-- 1 pierre pierre 2,4G mar 22 19:56 model-ep003-loss0.044-val_loss0.015.h5
+-rw-r--r-- 1 pierre pierre 2,4G mar 23 14:07 model-ep013-loss0.022-val_loss0.015.h5
+-rw-r--r-- 1 pierre pierre 2,4G mar 23 15:56 model-ep014-loss0.013-val_loss0.010.h5
+drwxr-xr-x 3 pierre pierre 4,0K mar 22 14:21 train
+drwxr-xr-x 2 pierre pierre 4,0K mar 22 16:10 validation
+-rw-r--r-- 1 pierre pierre 2,4G mar 29 13:47 xception.h5
+```
 
 ### Examples
 
